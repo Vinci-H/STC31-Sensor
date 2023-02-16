@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2022.3.1\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\14015\CLionProjects\STC31_Sensor
+CMAKE_SOURCE_DIR = C:\Users\hjs\Documents\CLionProjects\STC31_Sensor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\14015\CLionProjects\STC31_Sensor\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\hjs\Documents\CLionProjects\STC31_Sensor\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\14015\CLionProjects\STC31_Sensor\cmake-build-debug\CMakeFiles C:\Users\14015\CLionProjects\STC31_Sensor\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\hjs\Documents\CLionProjects\STC31_Sensor\cmake-build-debug\CMakeFiles C:\Users\hjs\Documents\CLionProjects\STC31_Sensor\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\14015\CLionProjects\STC31_Sensor\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\hjs\Documents\CLionProjects\STC31_Sensor\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -127,6 +127,30 @@ STC31_Sensor.elf: cmake_check_build_system
 STC31_Sensor.elf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\STC31_Sensor.elf.dir\build.make CMakeFiles/STC31_Sensor.elf.dir/build
 .PHONY : STC31_Sensor.elf/fast
+
+Core/Src/bmp388.obj: Core/Src/bmp388.c.obj
+.PHONY : Core/Src/bmp388.obj
+
+# target to build an object file
+Core/Src/bmp388.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\STC31_Sensor.elf.dir\build.make CMakeFiles/STC31_Sensor.elf.dir/Core/Src/bmp388.c.obj
+.PHONY : Core/Src/bmp388.c.obj
+
+Core/Src/bmp388.i: Core/Src/bmp388.c.i
+.PHONY : Core/Src/bmp388.i
+
+# target to preprocess a source file
+Core/Src/bmp388.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\STC31_Sensor.elf.dir\build.make CMakeFiles/STC31_Sensor.elf.dir/Core/Src/bmp388.c.i
+.PHONY : Core/Src/bmp388.c.i
+
+Core/Src/bmp388.s: Core/Src/bmp388.c.s
+.PHONY : Core/Src/bmp388.s
+
+# target to generate assembly for a file
+Core/Src/bmp388.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\STC31_Sensor.elf.dir\build.make CMakeFiles/STC31_Sensor.elf.dir/Core/Src/bmp388.c.s
+.PHONY : Core/Src/bmp388.c.s
 
 Core/Src/gpio.obj: Core/Src/gpio.c.obj
 .PHONY : Core/Src/gpio.obj
@@ -817,6 +841,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... STC31_Sensor.elf
+	@echo ... Core/Src/bmp388.obj
+	@echo ... Core/Src/bmp388.i
+	@echo ... Core/Src/bmp388.s
 	@echo ... Core/Src/gpio.obj
 	@echo ... Core/Src/gpio.i
 	@echo ... Core/Src/gpio.s

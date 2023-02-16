@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/14015/CLionProjects/STC31_Sensor
+# Install script for directory: C:/Users/hjs/Documents/CLionProjects/STC31_Sensor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/14015/CLionProjects/STC31_Sensor/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/hjs/Documents/CLionProjects/STC31_Sensor/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,4 +1,4 @@
-set(CMAKE_CXX_COMPILER "C:/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-g++.exe")
+set(CMAKE_CXX_COMPILER "C:/Users/hjs/Documents/CLionProjects/_Tools/gcc-arm-none-eabi/bin/arm-none-eabi-g++.exe")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_COMPILER_VERSION "10.3.1")
@@ -23,10 +23,10 @@ set(CMAKE_CXX_SIMULATE_VERSION "")
 
 
 set(CMAKE_AR "arm-none-eabi-ar")
-set(CMAKE_CXX_COMPILER_AR "C:/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc-ar.exe")
-set(CMAKE_RANLIB "C:/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-ranlib.exe")
-set(CMAKE_CXX_COMPILER_RANLIB "C:/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc-ranlib.exe")
-set(CMAKE_LINKER "C:/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-ld.exe")
+set(CMAKE_CXX_COMPILER_AR "C:/Users/hjs/Documents/CLionProjects/_Tools/gcc-arm-none-eabi/bin/arm-none-eabi-gcc-ar.exe")
+set(CMAKE_RANLIB "C:/Users/hjs/Documents/CLionProjects/_Tools/gcc-arm-none-eabi/bin/arm-none-eabi-ranlib.exe")
+set(CMAKE_CXX_COMPILER_RANLIB "C:/Users/hjs/Documents/CLionProjects/_Tools/gcc-arm-none-eabi/bin/arm-none-eabi-gcc-ranlib.exe")
+set(CMAKE_LINKER "C:/Users/hjs/Documents/CLionProjects/_Tools/gcc-arm-none-eabi/bin/arm-none-eabi-ld.exe")
 set(CMAKE_MT "")
 set(CMAKE_COMPILER_IS_GNUCXX 1)
 set(CMAKE_CXX_COMPILER_LOADED 1)
@@ -77,7 +77,7 @@ endif()
 
 
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "C:/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1;C:/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/arm-none-eabi;C:/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/c++/10.3.1/backward;C:/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include;C:/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include-fixed;C:/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "C:/Users/hjs/Documents/CLionProjects/_Tools/gcc-arm-none-eabi/arm-none-eabi/include/c++/10.3.1;C:/Users/hjs/Documents/CLionProjects/_Tools/gcc-arm-none-eabi/arm-none-eabi/include/c++/10.3.1/arm-none-eabi;C:/Users/hjs/Documents/CLionProjects/_Tools/gcc-arm-none-eabi/arm-none-eabi/include/c++/10.3.1/backward;C:/Users/hjs/Documents/CLionProjects/_Tools/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/10.3.1/include;C:/Users/hjs/Documents/CLionProjects/_Tools/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/10.3.1/include-fixed;C:/Users/hjs/Documents/CLionProjects/_Tools/gcc-arm-none-eabi/arm-none-eabi/include")
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "")
 set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

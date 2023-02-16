@@ -25,7 +25,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/JetBrains/CLion 2022.3.1/bin/cmake/win/share/cmake-3.24/Modules/Compiler/GNU.cmake"
   "C:/Program Files/JetBrains/CLion 2022.3.1/bin/cmake/win/share/cmake-3.24/Modules/Platform/Generic.cmake"
   "C:/Program Files/JetBrains/CLion 2022.3.1/bin/cmake/win/share/cmake-3.24/Modules/ProcessorCount.cmake"
-  "C:/Users/14015/CLionProjects/STC31_Sensor/CMakeLists.txt"
+  "C:/Users/hjs/Documents/CLionProjects/STC31_Sensor/CMakeLists.txt"
   "CMakeFiles/3.24.2/CMakeASMCompiler.cmake"
   "CMakeFiles/3.24.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.24.2/CMakeCXXCompiler.cmake"

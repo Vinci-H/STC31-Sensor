@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/STC31_Sensor.elf.dir/Core/Src/bmp388.c.obj"
+  "CMakeFiles/STC31_Sensor.elf.dir/Core/Src/bmp388.c.obj.d"
   "CMakeFiles/STC31_Sensor.elf.dir/Core/Src/gpio.c.obj"
   "CMakeFiles/STC31_Sensor.elf.dir/Core/Src/gpio.c.obj.d"
   "CMakeFiles/STC31_Sensor.elf.dir/Core/Src/i2c.c.obj"

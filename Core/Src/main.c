@@ -30,6 +30,7 @@
 #include "sensirion_i2c_hal.h"
 #include "stc3x_i2c.h"
 #include "sht4x.h"
+#include "bmp388.h"
 
 #include <inttypes.h>
 /* USER CODE END Includes */
@@ -66,10 +67,12 @@ PUTCHAR_PROTOTYPE{
 
 /* USER CODE BEGIN PV */
 
+PRESS_EN_SENSOR_TYPY bmp388Type;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+float one_order_low_pass_filter(float data_in, float fc);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -111,17 +114,16 @@ int main(void)
   //MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
 
+    printf("\n*************************\n");
     printf("STC31 & SHT40 test\n");
     HAL_Delay(100);
-    printf("STC31 & SHT40 test\n");
-    HAL_Delay(100);
-    printf("STC31 & SHT40 test\n");
-    HAL_Delay(100);
+    printf("*************************\n");
 
 
     int16_t error = 0;
 
     sensirion_i2c_hal_init(); //I2C2
+    pressSensorInit(&bmp388Type, hi2c2);
 
     /*************************************************************************/
     while (sht4x_probe() != STATUS_OK) {
@@ -171,7 +173,7 @@ int main(void)
         printf("STC31 Set binary gas to 0x0013\n");
     }
 
-    stc3x_enable_automatic_self_calibration(); //Turn on ASC
+    //stc3x_enable_automatic_self_calibration(); //Turn on ASC, this ASC is developed for other use.
 
     /*************************************************************************/
     uint16_t gas_ticks;
@@ -182,6 +184,11 @@ int main(void)
 
     int32_t SHT40_temperature;
     int32_t SHT40_humidity;
+
+    int32_t BMP388_Temperature;
+    int32_t BMP388_Pressure;
+    int32_t BMP388_Altitude;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -193,23 +200,26 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
       // RH & Temperature Read Measurement
-      error = sht4x_measure_blocking_read(&SHT40_temperature, &SHT40_humidity);
+      error = sht4x_measure_blocking_read(&SHT40_temperature, &SHT40_humidity);  //10ms
       if (error) {
           printf("Error RH & Temperature reading measurement\n");
       } else {
-          printf("Temperature: %0.2f ^C, "
-                 "Humidity: %0.2f %%RH, ",
+          printf("%0.2f, "
+                 "%0.2f, ",
                  SHT40_temperature / 1000.0f, SHT40_humidity / 1000.0f);
       }
 
-      // Calibration RH and Temperature
-      stc3x_set_relative_humidity((uint16_t) (SHT40_humidity / 1000.0f * 65535.0f / 100.0f));
-      stc3x_set_temperature((uint16_t)(SHT40_temperature / 1000.0f * 200.0f));
-      stc3x_set_pressure((uint16_t)1026);
+      pressSensorDataGet(&BMP388_Temperature, &BMP388_Pressure, &BMP388_Altitude);
+      printf("%0.2f, ", BMP388_Pressure);
+
+      // Calibration RH and Temperature and Pressure!!!!!
+      stc3x_set_relative_humidity((uint16_t) (SHT40_humidity / 1000.0f * 65535.0f / 100.0f));  //1ms
+      stc3x_set_temperature((uint16_t)(SHT40_temperature / 1000.0f * 200.0f));  //1ms
+      //stc3x_set_pressure((uint16_t)1012);  //1ms
 
 
       // CO2 Read Measurement
-      error = stc3x_measure_gas_concentration(&gas_ticks, &temperature_ticks);
+      error = stc3x_measure_gas_concentration(&gas_ticks, &temperature_ticks);   //100ms
       if (error) {
           printf("Error executing stc3x_measure_gas_concentration(): %i\n",
                  error);
@@ -217,11 +227,12 @@ int main(void)
           gas = 100 * ((float)gas_ticks - 16384.0) / 32768.0;
           //temperature = (float)temperature_ticks / 200.0;
           //printf("STC31 ==> Gas: %f - Temperature: %f\n", gas, temperature);
-          printf("Gas: %f \n", gas);
+          //printf("%f \n", one_order_low_pass_filter(gas, 0.1));
+          printf("%f \n", gas); // no filter
       }
 
       //printf("*********************************************************************\n");
-      //sensirion_i2c_hal_sleep_usec(900000); //900ms + 102ms = 1s
+      sensirion_i2c_hal_sleep_usec(30000); //112ms  +  30ms   =  142ms  ->  7 Hz
   }
   /* USER CODE END 3 */
 }
@@ -266,7 +277,27 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+#define LPF_Ts 0.142f
+#define PI     3.1415926f
 
+float one_order_low_pass_filter(float data_in, float fc)
+{
+	static float alpha, data_out_last = -999.999f;
+	float delta, data_temp;
+	delta = 2.0f * PI * fc * LPF_Ts;
+	alpha = delta / (delta + 1.0f);
+
+	if (data_out_last != -999.999f)
+	{
+		data_temp = (alpha * data_in + (1.0f - alpha) * data_out_last);
+	}
+	else
+	{
+		data_temp = data_in;
+	}
+	data_out_last = data_temp;
+	return data_temp;
+}
 /* USER CODE END 4 */
 
 /**
