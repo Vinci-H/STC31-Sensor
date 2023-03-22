@@ -72,9 +72,5 @@ CMakeFiles/STC31_Sensor.elf.dir/Core/Src/main.c.obj: \
  C:\Users\hjs\Documents\CLionProjects\STC31_Sensor\Core\Inc/sht4x.h \
  C:\Users\hjs\Documents\CLionProjects\STC31_Sensor\Core\Inc/sensirion_i2c.h \
  C:\Users\hjs\Documents\CLionProjects\STC31_Sensor\Core\Inc/bmp388.h \
- c:\users\hjs\documents\clionprojects\_tools\gcc-arm-none-eabi\arm-none-eabi\include\string.h \
- c:\users\hjs\documents\clionprojects\_tools\gcc-arm-none-eabi\arm-none-eabi\include\sys\_locale.h \
- c:\users\hjs\documents\clionprojects\_tools\gcc-arm-none-eabi\arm-none-eabi\include\strings.h \
- c:\users\hjs\documents\clionprojects\_tools\gcc-arm-none-eabi\arm-none-eabi\include\sys\string.h \
- c:\users\hjs\documents\clionprojects\_tools\gcc-arm-none-eabi\arm-none-eabi\include\math.h \
- c:\users\hjs\documents\clionprojects\_tools\gcc-arm-none-eabi\arm-none-eabi\include\inttypes.h
+ c:\users\hjs\documents\clionprojects\_tools\gcc-arm-none-eabi\arm-none-eabi\include\inttypes.h \
+ c:\users\hjs\documents\clionprojects\_tools\gcc-arm-none-eabi\arm-none-eabi\include\sys\_locale.h
